@@ -1,31 +1,24 @@
+// express config
 const express = require("express");
 const app = express();
 const port = 5000;
 
-const path = require("path");
+// other imports
 
-const multer = require("multer");
-storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, "uploads");
-	},
+// routes import
+const rosterRoute = require("./routes/Roster");
+const uploadRoute = require("./routes/Upload");
+// routes config
+app.use("/roster", rosterRoute);
+app.use("/upload", uploadRoute);
 
-	filename: (req, file, cb) => {
-		console.log(file);
-		cb(null, Date.now() + path.extname(file.originalname));
-	},
-});
-// file upload
-const upload = multer({ storage: storage });
-
+// viewing engine
 app.set("view engine", "ejs");
 
-app.get("", (req, res) => {
-	res.render("index");
-});
+// code below
 
-app.post("/upload", upload.single("image"), (req, res) => {
-	res.send("Uploaded");
+app.get("/", (req, res) => {
+	res.redirect("/upload");
 });
 
 app.listen(port, () => {
