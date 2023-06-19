@@ -4,6 +4,9 @@ const router = express.Router();
 const fs = require("fs");
 const pdfjsLib = require("pdfjs-dist");
 
+// module imports
+const reScripts = require("../scripts/regularExpressions");
+
 // Set the workerSrc property before using any PDF.js functionality
 pdfjsLib.GlobalWorkerOptions.workerSrc = "pdfjs-dist/build/pdf.worker.js";
 
@@ -38,19 +41,17 @@ async function performTextSelection() {
 
 			// Concatenate the text items to form the complete page text
 			const pageText = textItems.map((item) => item.str).join(" ");
-			console.log(`Page ${pageNumber} Text: ${pageText}`);
 
 			data.push({ pageNumber: pageNumber, text: pageText });
 		}
-		return data;
+		return reScripts.reBodyData(data);
 	} catch (error) {
 		console.error("Error reading PDF:", error);
 		throw error;
 	}
 }
 
-const getBodyData = () => {
-	const reKey = "(?<=Credits+Ports+Codes+)(.*?)(?=s+Available Date/Time this|?=s+PLN Total Credit Hours)";
-};
+// (\d{2}\/\d{2})\s+([A-Za-z]{3})\s+((?:HRA SPAN|NON AV|LSC|(?:\d{4}(?:A\d{1,2})?))\s?)+\s+(\b(\d{1,4}[A-Za-z]?)(?:\/(\d{1,4}[A-Za-z]?))*\b|)+\s+(PLN|(\d{4})+\s+(\d{4})+\s+(\d{1,2}:\d{2})+\s+()?)
 
+// ! revision of regex  --- HRA SPAN = no service but sign on/off time --- NON AV = no service
 module.exports = router;
