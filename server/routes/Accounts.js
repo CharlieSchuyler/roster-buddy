@@ -14,6 +14,8 @@ router.get("/", (req, res) => {
 	res.send("a");
 });
 
+router.get("/login");
+
 module.exports = router;
 
 const connectToDatabase = () => {

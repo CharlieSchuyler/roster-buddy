@@ -12,9 +12,12 @@
   justify-content: space-around;
   align-items: center;
 }
+.header-main .branding h1 {
+  margin: 0px 7%;
+}
 .header-main .branding .logo {
   background-color: #6d3a6f;
-  height: 70%;
+  height: 60%;
   aspect-ratio: 1/1;
   border-radius: 12px;
 }
@@ -32,4 +35,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+.header-main .navigation .active {
+  font-weight: 700;
 }/*# sourceMappingURL=header.css.map */

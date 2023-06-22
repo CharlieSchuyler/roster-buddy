@@ -13,7 +13,7 @@ const Header = () => {
 			<div className="navigation">
 				<ul>
 					<a href="./">
-						<li className="Active">Dashboard</li>
+						<li className="active">Dashboard</li>
 					</a>
 					<a href="./Calander">
 						<li>Calander</li>

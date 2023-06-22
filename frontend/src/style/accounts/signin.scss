@@ -1,0 +1,55 @@
+.Signin {
+	display: flex;
+	justify-content: center;
+	.inputfields {
+		height: 100vh;
+		width: 40%;
+		.header {
+			text-align: left;
+			width: 70%;
+			font-size: 28px;
+			b {
+				font-weight: bold;
+			}
+			p {
+				margin-top: 0%;
+			}
+		}
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		form {
+			width: 70%;
+			height: 50%;
+
+			input[type="text"],
+			input[type="password"] {
+				width: 100%;
+				height: 5vh;
+				border-radius: 4px;
+				background-color: transparent;
+				border: 1px solid #fff;
+
+				font-size: medium;
+			}
+
+			input[type="submit"] {
+				margin-top: 5%;
+				width: 100%;
+				height: 5vh;
+				border-radius: 4px;
+				border: none;
+				box-sizing: border-box;
+				background-color: #22333b;
+				font-size: medium;
+			}
+		}
+	}
+	.background {
+		width: 60%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url("../../../public/aircraft.jpg");
+	}
+}
