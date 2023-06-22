@@ -8,9 +8,11 @@ const port = 5000;
 // routes import
 const rosterRoute = require("./routes/Roster");
 const uploadRoute = require("./routes/Upload");
+const accountRoute = require("./routes/Accounts");
 // routes config
 app.use("/roster", rosterRoute);
 app.use("/upload", uploadRoute);
+app.use("/account", accountRoute);
 
 // viewing engine
 app.set("view engine", "ejs");
