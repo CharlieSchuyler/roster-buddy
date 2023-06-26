@@ -18,6 +18,10 @@ router.get("/login");
 
 module.exports = router;
 
+router.post("/login", (req, res) => {
+	console.log(res.body);
+});
+
 const connectToDatabase = () => {
 	const db = new sqlite3.Database("./database/users.db", sqlite3.OPEN_READWRITE, (err) => {
 		if (err) return console.error(err);
